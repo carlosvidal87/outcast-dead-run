@@ -48,15 +48,15 @@ const QUERY_LABELS := [
 ]
 
 const QUERY_PLACEHOLDERS := [
-	"res://character.gd",
-	"res://zombie.tscn",
-	"res://character.gd",
-	"res://zombie.tscn",
+	"res://src/scripts/character.gd",
+	"res://src/scenes/zombie.tscn",
+	"res://src/scripts/character.gd",
+	"res://src/scenes/zombie.tscn",
 	"zombie_died",
 	"take_damage",
 	"zombie",
 	"function | signal_def | scene | script | variable | group",
-	"res://character.gd -> res://spawner.gd",
+	"res://src/scripts/character.gd -> res://src/scripts/spawner.gd",
 	"(sem entrada necessária)",
 ]
 

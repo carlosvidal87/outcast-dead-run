@@ -113,7 +113,7 @@ const RELATION_FROM_NAME := {
 
 ## Representa qualquer entidade do projeto: cena, script, nó, função, sinal, etc.
 class GraphNode extends RefCounted:
-	var id        : String     ## Ex: "scene::res://character.tscn"
+	var id        : String     ## Ex: "scene::res://src/scenes/character.tscn"
 	var type      : String     ## Ex: "scene", "function", "signal_def"
 	var name      : String     ## Nome legível
 	var file_path : String     ## Caminho do arquivo de origem
