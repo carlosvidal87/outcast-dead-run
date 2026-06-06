@@ -1,0 +1,6 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# ProjectGraph cache (auto-generated index)
+addons/project_graph/.cache/
