@@ -1,47 +1,59 @@
 # Roadmap de Desenvolvimento: Outcast - Dead Run
 
-Este é o quadro de tarefas principal do projeto para as próximas 3 semanas. Marquem as tarefas mudando `[ ]` para `[x]` conforme forem finalizando.
-
----
-
-## 🚦 Regra de Ouro do Trabalho em Equipe (Evitando Bugs no Git)
-
-Como seu amigo quer começar a fazer o mapa imediatamente, vocês adotarão o **Desenvolvimento Paralelo**. Isso é perfeito, desde que vocês não trabalhem no mesmo arquivo!
+Este documento divide o desenvolvimento nas próximas 3 semanas. Ele está estruturado para permitir que o **Trabalho de Código (Programação)** e o **Trabalho de Mapa (Level Design)** aconteçam de forma simultânea (em paralelo) sem que um bloqueie ou quebre o trabalho do outro.
 
 > [!TIP]
-> **Como dividir na Godot:**
-> - **Seu amigo (Level Designer):** Deve criar uma **NOVA CENA** chamada `src/scenes/mapa_oficial.tscn`. Ele passará os dias arrastando os prédios, ruas e criando a atmosfera lá dentro. Ele **não** deve colocar scripts ou mexer no multiplayer agora. Apenas o visual e colisões.
-> - **Você (Programador):** Vai trabalhar na cena atual de testes (`src/scenes/node_3d.tscn`) ou criar uma cena "Sandbox". Você fará a lógica de andar, atirar e o código do servidor. 
-> - **O Encontro (Fase 3):** Quando a rede estiver funcionando na cena de testes e o mapa dele estiver bonito, vocês simplesmente jogam o "Jogador" e o "Spawner de Zumbis" dentro do mapa que ele criou! Sem conflitos de código.
+> **Como trabalhar em paralelo:** Enquanto um de vocês mexe nos códigos e na cena do personagem (`src/scenes/character.tscn`), o outro pode montar todo o mapa do zero em uma cena limpa e separada (sugestão: criar `src/scenes/mapa_principal.tscn`). Quando ambos terminarem suas partes básicas, o programador só precisará arrastar o Jogador para dentro do mapa no final. Assim, nunca haverá "conflito" no Git!
+
+## 📌 Status das Tarefas
+Legenda: 
+- `[ ]` A Fazer
+- `[~]` Em Andamento
+- `[x]` Concluído
 
 ---
 
-## 📋 BACKLOG DE TAREFAS
+## Fase 1: Fundação Básica (Semana 1)
 
-### Fase 1: Fundação e Multiplayer (Programação Básica)
-- [ ] **Configuração do Host/Client:** Criar lógica para iniciar um servidor local e permitir conexão (Netcode base da Godot).
-- [ ] **Spawn de Jogadores:** Fazer com que, ao conectar, o jogo instancie um personagem para o Host e outro para o Client.
-- [ ] **Movimentação Sincronizada:** Testar andar, pular e correr e verificar se ambos se veem na tela de testes sem grandes atrasos.
-- [ ] **Sincronizar Armas Base:** Fazer com que atirar, mirar e recarregar (e o som disso) seja executado na rede para todos ouvirem.
-- [ ] **Vida e Dano:** Sistema básico para o jogador perder vida ao tomar dano, morrer e virar espectador.
+**Para o Programador:**
+- `[ ]` Criar conexão básica de Multiplayer (Host/Client).
+- `[ ]` Sincronizar movimentação dos jogadores pela rede.
+- `[ ]` Base das armas: atirar, dar dano e recarregar (com sincronia na rede).
+- `[ ]` Criar um HUD inicial e simples (Barra de Vida e Munição).
 
-### Fase 2: Zumbis e Economia (O Loop de Gameplay)
-- [ ] **NavMesh e Movimento:** Adicionar navegação no chão para o zumbi saber andar até os jogadores desviando de paredes.
-- [ ] **IA de Ataque:** Zumbi bate e tira vida quando encosta no jogador.
-- [ ] **Sistema de Sucata (Scrap):** Matar zumbi gera pontos no HUD de quem o matou (ou coletável no chão).
-- [ ] **Interação:** Apertar 'E' em uma porta para deletá-la/abri-la caso o jogador tenha sucata suficiente.
-- [ ] **Diretor de Hordas:** Script que conta o tempo e decide "spawne 3 zumbis espalhados agora" ou "spawne 20 zumbis em onda!".
+**Para o Level Designer (O Amigo):**
+- `[ ]` Criar a cena `mapa_principal.tscn` para começar o cenário.
+- `[ ]` Construir a estrutura física da **Safezone** inicial (lugar isolado e seguro).
+- `[ ]` Montar o trajeto usando os modelos 3D (`assets/city` e `assets/roads`): definir onde são as áreas abertas e onde são os becos de tensão (vibe S.T.A.L.K.E.R).
+- `[ ]` Deixar "espaços reservados" físicos para as portas bloqueadas e compras de armas nas paredes.
 
-### Fase 3: Level Design, Atmosfera e Clímax (A Experiência S.T.A.L.K.E.R)
-*(Estas tarefas seu amigo pode começar imediatamente no `mapa_oficial.tscn`)*
-- [ ] **Blocagem do Mapa:** Usar os modelos de `assets/roads` e `assets/city` para criar ruas estreitas, becos e a Safezone inicial.
-- [ ] **Atmosfera (Ambiente):** Configurar o `WorldEnvironment` para ter neblina espessa, paleta de cores dessaturada e iluminação sombria.
-- [ ] **Sons de Fundo:** Colocar sons de vento e ruídos distantes no mapa.
-- [ ] **Objetivos:** Definir os pontos onde o jogador precisa ir para liberar a Extração (ex: 3 geradores espalhados).
-- [ ] **A Extração / Boss:** Lógica para aparecer a rota de fuga (ou helicóptero) após o objetivo principal ser completado.
+---
 
-### Fase 4: Menu, Fator Replay e Polimento
-- [ ] **Menu Principal:** Tela inicial com opção "Hospedar Jogo" ou "Entrar com IP".
-- [ ] **Sistema de Salvamento (Save Data):** Salvar os recursos ganhos após uma extração para não perder ao fechar o jogo.
-- [ ] **Loot Aleatório (Spawns):** Configurar pontos de nascimento de zumbis e caixas de vantagens para mudarem de lugar a cada partida.
-- [ ] **Efeitos Especiais (VFX):** Adicionar fumaça nas armas, sangue, recuo de tela (camera shake).
+## Fase 2: Inimigos e Economia (Semana 2)
+
+**Para o Programador:**
+- `[ ]` Lógica do Zumbi (NavMesh) para seguir e atacar o jogador mais próximo.
+- `[ ]` Sistema de Sucata: Zumbis dão pontos ao morrer.
+- `[ ]` Lógica de Interação ('E'): Pagar sucata para abrir portas e comprar armas.
+- `[ ]` Gerador de Hordas: Sistema invisível que spawna zumbis aos poucos, e ativa ondas gigantes por barulho ou avanço.
+
+**Para o Level Designer:**
+- `[ ]` Gerar e assar o **NavMesh** no mapa para os zumbis saberem onde podem pisar.
+- `[ ]` **Iluminação e Clima:** Configurar neblina pesada (fog), luzes piscantes e uma iluminação dessaturada e fria.
+- `[ ]` Distribuir "Spawn Points" (pontos invisíveis) pelo mapa dizendo onde os zumbis vão brotar da terra.
+- `[ ]` Posicionar sons ambientes (vento, ruídos assustadores).
+
+---
+
+## Fase 3: Extração e Clímax (Semana 3)
+
+**Para o Programador:**
+- `[ ]` Lógica dos Objetivos (coletar X itens ou ativar geradores).
+- `[ ]` Spawno e Lógica do Boss Final (inimigo com mais vida e padrões de ataque).
+- `[ ]` Ativar a Extração apenas quando o Boss morrer.
+- `[ ]` Salvar a sucata do jogador no arquivo (Meta-progressão) e Menu Principal.
+
+**Para o Level Designer:**
+- `[ ]` Construir a "Arena" final, um local propício para a luta contra o Boss.
+- `[ ]` Decorar e sinalizar visualmente a Zona de Extração (luzes fortes ou um helicóptero de fundo).
+- `[ ]` Polimento final do mapa (consertar colisões onde o jogador enrosca, tapar buracos no chão).
