@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bcxxlfrbgfr2e"
-path="res://.godot/imported/silencer-small.glb-cf9cf343df6c2c2e7097aff18f448370.scn"
+path="res://.godot/imported/silencer-small.glb-557efd813f77cb7c1be04983119f4b97.scn"
 
 [deps]
 
 source_file="res://assets/weapons/silencer-small.glb"
-dest_files=["res://.godot/imported/silencer-small.glb-cf9cf343df6c2c2e7097aff18f448370.scn"]
+dest_files=["res://.godot/imported/silencer-small.glb-557efd813f77cb7c1be04983119f4b97.scn"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dn1xv6or8vtgj"
-path="res://.godot/imported/road-straight-half.glb-45f89dcbb46daa0fc3eeade24f8c4b67.scn"
+path="res://.godot/imported/road-straight-half.glb-7c03cc61e11ea7031e4cc3f37796be20.scn"
 
 [deps]
 
 source_file="res://assets/roads/road-straight-half.glb"
-dest_files=["res://.godot/imported/road-straight-half.glb-45f89dcbb46daa0fc3eeade24f8c4b67.scn"]
+dest_files=["res://.godot/imported/road-straight-half.glb-7c03cc61e11ea7031e4cc3f37796be20.scn"]
 
 [params]
 

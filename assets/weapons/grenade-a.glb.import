@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dsableuchgdun"
-path="res://.godot/imported/grenade-a.glb-b408ecb7c59c3ccbe44f21b5b9508960.scn"
+path="res://.godot/imported/grenade-a.glb-3e48f963c5fad8e2abca1d5ce50b5fac.scn"
 
 [deps]
 
 source_file="res://assets/weapons/grenade-a.glb"
-dest_files=["res://.godot/imported/grenade-a.glb-b408ecb7c59c3ccbe44f21b5b9508960.scn"]
+dest_files=["res://.godot/imported/grenade-a.glb-3e48f963c5fad8e2abca1d5ce50b5fac.scn"]
 
 [params]
 

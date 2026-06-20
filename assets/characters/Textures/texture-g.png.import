@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://qjip1kjvpd4b"
-path.s3tc="res://.godot/imported/texture-g.png-121272e04732e19647898f07261e7b5b.s3tc.ctex"
+path.s3tc="res://.godot/imported/texture-g.png-c51c8d0d157c57de84a34f11ea61e900.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,7 +12,7 @@ metadata={
 [deps]
 
 source_file="res://assets/characters/Textures/texture-g.png"
-dest_files=["res://.godot/imported/texture-g.png-121272e04732e19647898f07261e7b5b.s3tc.ctex"]
+dest_files=["res://.godot/imported/texture-g.png-c51c8d0d157c57de84a34f11ea61e900.s3tc.ctex"]
 
 [params]
 

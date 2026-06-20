@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cx17v5w23dd4h"
-path="res://.godot/imported/light-curved-cross.glb-2abbbe7075383a287407d4ffdd21645a.scn"
+path="res://.godot/imported/light-curved-cross.glb-8a0c132ed739b87b7dcd5d47433b0be4.scn"
 
 [deps]
 
 source_file="res://assets/roads/light-curved-cross.glb"
-dest_files=["res://.godot/imported/light-curved-cross.glb-2abbbe7075383a287407d4ffdd21645a.scn"]
+dest_files=["res://.godot/imported/light-curved-cross.glb-8a0c132ed739b87b7dcd5d47433b0be4.scn"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b423cykj0rq0p"
-path="res://.godot/imported/road-slant-flat-curve.glb-3031d7ed597090e25666a8ca4a2adb10.scn"
+path="res://.godot/imported/road-slant-flat-curve.glb-98f21800a5507e093a26d16da98196bd.scn"
 
 [deps]
 
 source_file="res://assets/roads/road-slant-flat-curve.glb"
-dest_files=["res://.godot/imported/road-slant-flat-curve.glb-3031d7ed597090e25666a8ca4a2adb10.scn"]
+dest_files=["res://.godot/imported/road-slant-flat-curve.glb-98f21800a5507e093a26d16da98196bd.scn"]
 
 [params]
 

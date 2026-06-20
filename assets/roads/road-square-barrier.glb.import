@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://003sa7q613rx"
-path="res://.godot/imported/road-square-barrier.glb-f2e293aac647ae1db420d93118460315.scn"
+path="res://.godot/imported/road-square-barrier.glb-acba148d5c8c58ece15ba4a77e9d72cd.scn"
 
 [deps]
 
 source_file="res://assets/roads/road-square-barrier.glb"
-dest_files=["res://.godot/imported/road-square-barrier.glb-f2e293aac647ae1db420d93118460315.scn"]
+dest_files=["res://.godot/imported/road-square-barrier.glb-acba148d5c8c58ece15ba4a77e9d72cd.scn"]
 
 [params]
 

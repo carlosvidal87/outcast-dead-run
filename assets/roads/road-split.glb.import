@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ooyfpcq2wmcf"
-path="res://.godot/imported/road-split.glb-09cff2a4a8f397280e8fae1244b935cd.scn"
+path="res://.godot/imported/road-split.glb-3ed5c719993414393e30bff1df63ced4.scn"
 
 [deps]
 
 source_file="res://assets/roads/road-split.glb"
-dest_files=["res://.godot/imported/road-split.glb-09cff2a4a8f397280e8fae1244b935cd.scn"]
+dest_files=["res://.godot/imported/road-split.glb-3ed5c719993414393e30bff1df63ced4.scn"]
 
 [params]
 

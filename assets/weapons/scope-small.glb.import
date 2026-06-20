@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dangi35svb5q5"
-path="res://.godot/imported/scope-small.glb-2c186ecd193c291126846aa7fb678f8f.scn"
+path="res://.godot/imported/scope-small.glb-8ab36e9b75ecbcbf3ff4124a2669d62b.scn"
 
 [deps]
 
 source_file="res://assets/weapons/scope-small.glb"
-dest_files=["res://.godot/imported/scope-small.glb-2c186ecd193c291126846aa7fb678f8f.scn"]
+dest_files=["res://.godot/imported/scope-small.glb-8ab36e9b75ecbcbf3ff4124a2669d62b.scn"]
 
 [params]
 

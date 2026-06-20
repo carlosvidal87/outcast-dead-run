@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d07emlj5vs5hg"
-path="res://.godot/imported/road-bridge.glb-8814477e3e576377d3f1bcf10a57f47a.scn"
+path="res://.godot/imported/road-bridge.glb-73e703808213163975d74e62df7b8c9e.scn"
 
 [deps]
 
 source_file="res://assets/roads/road-bridge.glb"
-dest_files=["res://.godot/imported/road-bridge.glb-8814477e3e576377d3f1bcf10a57f47a.scn"]
+dest_files=["res://.godot/imported/road-bridge.glb-73e703808213163975d74e62df7b8c9e.scn"]
 
 [params]
 

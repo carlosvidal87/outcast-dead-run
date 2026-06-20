@@ -47,6 +47,12 @@ light_color = Color(1, 0.7, 0.2, 1)
 light_energy = 4.0
 omni_range = 3.0
 
+[node name="Flashlight" type="SpotLight3D" parent="Camera3D"]
+light_energy = 3.0
+shadow_enabled = true
+spot_range = 25.0
+spot_angle = 35.0
+
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1648293811]
 
 [node name="Crosshair" type="Label" parent="HUD" unique_id=1748293816]

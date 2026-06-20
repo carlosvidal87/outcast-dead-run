@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://day1ps38hnmor"
-path="res://.godot/imported/assalt-reload.mp3-bdb5a7acff1ddd4861ec25eec38faa56.mp3str"
+path="res://.godot/imported/assalt-reload.mp3-42c637c28f9f067037a51182eaebca0c.mp3str"
 
 [deps]
 
 source_file="res://assets/sounds/assalt-reload.mp3"
-dest_files=["res://.godot/imported/assalt-reload.mp3-bdb5a7acff1ddd4861ec25eec38faa56.mp3str"]
+dest_files=["res://.godot/imported/assalt-reload.mp3-42c637c28f9f067037a51182eaebca0c.mp3str"]
 
 [params]
 

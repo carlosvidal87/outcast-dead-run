@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dxjkd1tl8gksg"
-path="res://.godot/imported/low-detail-building-g.glb-1e3f692ff3a9b82001cf8d7c385b136e.scn"
+path="res://.godot/imported/low-detail-building-g.glb-934fb42052a70edcb0efd43166f561b7.scn"
 
 [deps]
 
 source_file="res://assets/city/low-detail-building-g.glb"
-dest_files=["res://.godot/imported/low-detail-building-g.glb-1e3f692ff3a9b82001cf8d7c385b136e.scn"]
+dest_files=["res://.godot/imported/low-detail-building-g.glb-934fb42052a70edcb0efd43166f561b7.scn"]
 
 [params]
 

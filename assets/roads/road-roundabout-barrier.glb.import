@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d0bxnl33xkw8c"
-path="res://.godot/imported/road-roundabout-barrier.glb-2f6604bdb21755dac162cff6be3c5617.scn"
+path="res://.godot/imported/road-roundabout-barrier.glb-63b86e4b0d1dd2e873ca1004904c8ced.scn"
 
 [deps]
 
 source_file="res://assets/roads/road-roundabout-barrier.glb"
-dest_files=["res://.godot/imported/road-roundabout-barrier.glb-2f6604bdb21755dac162cff6be3c5617.scn"]
+dest_files=["res://.godot/imported/road-roundabout-barrier.glb-63b86e4b0d1dd2e873ca1004904c8ced.scn"]
 
 [params]
 

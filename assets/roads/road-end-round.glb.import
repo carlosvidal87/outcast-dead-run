@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://n4i0ka65f4qb"
-path="res://.godot/imported/road-end-round.glb-11e75a3de0d5a634ade13a7cd17bb5ee.scn"
+path="res://.godot/imported/road-end-round.glb-bcb9f0f05b15869fa03ea7edfeb86fdf.scn"
 
 [deps]
 
 source_file="res://assets/roads/road-end-round.glb"
-dest_files=["res://.godot/imported/road-end-round.glb-11e75a3de0d5a634ade13a7cd17bb5ee.scn"]
+dest_files=["res://.godot/imported/road-end-round.glb-bcb9f0f05b15869fa03ea7edfeb86fdf.scn"]
 
 [params]
 

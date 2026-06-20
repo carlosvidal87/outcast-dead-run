@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://xubh2bqg3e3c"
-path="res://.godot/imported/bullet-foam-thick.glb-0408602a056bbabd05b359bd65c86813.scn"
+path="res://.godot/imported/bullet-foam-thick.glb-dda7ec53ce13bc3924301e2d7d5130c6.scn"
 
 [deps]
 
 source_file="res://assets/weapons/bullet-foam-thick.glb"
-dest_files=["res://.godot/imported/bullet-foam-thick.glb-0408602a056bbabd05b359bd65c86813.scn"]
+dest_files=["res://.godot/imported/bullet-foam-thick.glb-dda7ec53ce13bc3924301e2d7d5130c6.scn"]
 
 [params]
 

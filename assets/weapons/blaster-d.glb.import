@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cle15klfmutb2"
-path="res://.godot/imported/blaster-d.glb-e1314b5284224f604cce670f24cf4bc7.scn"
+path="res://.godot/imported/blaster-d.glb-55a61caa0498fe4ca67c50c299f30f80.scn"
 
 [deps]
 
 source_file="res://assets/weapons/blaster-d.glb"
-dest_files=["res://.godot/imported/blaster-d.glb-e1314b5284224f604cce670f24cf4bc7.scn"]
+dest_files=["res://.godot/imported/blaster-d.glb-55a61caa0498fe4ca67c50c299f30f80.scn"]
 
 [params]
 

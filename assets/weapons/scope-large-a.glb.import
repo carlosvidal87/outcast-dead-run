@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cb2vv65nvie8e"
-path="res://.godot/imported/scope-large-a.glb-21a65440ac1f4615392ce6920d9ed85f.scn"
+path="res://.godot/imported/scope-large-a.glb-47c8530496226226bef3219f8c0c104f.scn"
 
 [deps]
 
 source_file="res://assets/weapons/scope-large-a.glb"
-dest_files=["res://.godot/imported/scope-large-a.glb-21a65440ac1f4615392ce6920d9ed85f.scn"]
+dest_files=["res://.godot/imported/scope-large-a.glb-47c8530496226226bef3219f8c0c104f.scn"]
 
 [params]
 

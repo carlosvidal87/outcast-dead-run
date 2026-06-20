@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ky6yy72w4iys"
-path="res://.godot/imported/crate-wide.glb-428d1069070681a07554ef4cf9c0cfd7.scn"
+path="res://.godot/imported/crate-wide.glb-7e4d4bfa458573ae25fe5dd2b05c9596.scn"
 
 [deps]
 
 source_file="res://assets/weapons/crate-wide.glb"
-dest_files=["res://.godot/imported/crate-wide.glb-428d1069070681a07554ef4cf9c0cfd7.scn"]
+dest_files=["res://.godot/imported/crate-wide.glb-7e4d4bfa458573ae25fe5dd2b05c9596.scn"]
 
 [params]
 

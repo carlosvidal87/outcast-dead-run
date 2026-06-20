@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cj1gpemaore2y"
-path="res://.godot/imported/building-i.glb-1f9507cdb53b323804e70c970c31fbe7.scn"
+path="res://.godot/imported/building-i.glb-21a29ff3965b8fc8289f3f94c4966adf.scn"
 
 [deps]
 
 source_file="res://assets/city/building-i.glb"
-dest_files=["res://.godot/imported/building-i.glb-1f9507cdb53b323804e70c970c31fbe7.scn"]
+dest_files=["res://.godot/imported/building-i.glb-21a29ff3965b8fc8289f3f94c4966adf.scn"]
 
 [params]
 

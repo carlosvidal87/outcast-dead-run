@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://w4qhw8yxqy85"
-path="res://.godot/imported/road-bend-sidewalk.glb-90744943374febd76545fd05778a048a.scn"
+path="res://.godot/imported/road-bend-sidewalk.glb-fdbbd9f57f8e534d17e4857078978502.scn"
 
 [deps]
 
 source_file="res://assets/roads/road-bend-sidewalk.glb"
-dest_files=["res://.godot/imported/road-bend-sidewalk.glb-90744943374febd76545fd05778a048a.scn"]
+dest_files=["res://.godot/imported/road-bend-sidewalk.glb-fdbbd9f57f8e534d17e4857078978502.scn"]
 
 [params]
 

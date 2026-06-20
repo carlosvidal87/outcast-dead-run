@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dviewbx3w1s5a"
-path="res://.godot/imported/sign-highway.glb-0c6b5d3b24ecd7bbeef0403500a9ae7a.scn"
+path="res://.godot/imported/sign-highway.glb-f12b4df938a678b48d159219757f0eea.scn"
 
 [deps]
 
 source_file="res://assets/roads/sign-highway.glb"
-dest_files=["res://.godot/imported/sign-highway.glb-0c6b5d3b24ecd7bbeef0403500a9ae7a.scn"]
+dest_files=["res://.godot/imported/sign-highway.glb-f12b4df938a678b48d159219757f0eea.scn"]
 
 [params]
 

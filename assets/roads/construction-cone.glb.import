@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cos6wg64uwxh4"
-path="res://.godot/imported/construction-cone.glb-7b01cad806cff8e906ee242e9eb4d3f4.scn"
+path="res://.godot/imported/construction-cone.glb-20a558f4b89bf3ca3f56ae3176dbfc0b.scn"
 
 [deps]
 
 source_file="res://assets/roads/construction-cone.glb"
-dest_files=["res://.godot/imported/construction-cone.glb-7b01cad806cff8e906ee242e9eb4d3f4.scn"]
+dest_files=["res://.godot/imported/construction-cone.glb-20a558f4b89bf3ca3f56ae3176dbfc0b.scn"]
 
 [params]
 

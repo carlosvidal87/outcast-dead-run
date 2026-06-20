@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d0mgy05xk507d"
-path="res://.godot/imported/target-large.glb-437fe135df5eb4a6d960ae1e5575a5d8.scn"
+path="res://.godot/imported/target-large.glb-7779e43ab88492983b02dda140bf32fb.scn"
 
 [deps]
 
 source_file="res://assets/weapons/target-large.glb"
-dest_files=["res://.godot/imported/target-large.glb-437fe135df5eb4a6d960ae1e5575a5d8.scn"]
+dest_files=["res://.godot/imported/target-large.glb-7779e43ab88492983b02dda140bf32fb.scn"]
 
 [params]
 

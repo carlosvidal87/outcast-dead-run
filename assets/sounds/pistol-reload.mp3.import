@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://c8tdhcj4jtvk"
-path="res://.godot/imported/pistol-reload.mp3-c1aa8c929dfcefc28c396ecd88365f4b.mp3str"
+path="res://.godot/imported/pistol-reload.mp3-298ed8db5bf235bd36bc72c824fe0568.mp3str"
 
 [deps]
 
 source_file="res://assets/sounds/pistol-reload.mp3"
-dest_files=["res://.godot/imported/pistol-reload.mp3-c1aa8c929dfcefc28c396ecd88365f4b.mp3str"]
+dest_files=["res://.godot/imported/pistol-reload.mp3-298ed8db5bf235bd36bc72c824fe0568.mp3str"]
 
 [params]
 

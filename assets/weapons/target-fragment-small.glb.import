@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://j70jhx0kq5y2"
-path="res://.godot/imported/target-fragment-small.glb-10bd14d7d4702910a8a30c503ed6f27e.scn"
+path="res://.godot/imported/target-fragment-small.glb-5f8dd52470e97bc2cb85ccbd6a149a2b.scn"
 
 [deps]
 
 source_file="res://assets/weapons/target-fragment-small.glb"
-dest_files=["res://.godot/imported/target-fragment-small.glb-10bd14d7d4702910a8a30c503ed6f27e.scn"]
+dest_files=["res://.godot/imported/target-fragment-small.glb-5f8dd52470e97bc2cb85ccbd6a149a2b.scn"]
 
 [params]
 

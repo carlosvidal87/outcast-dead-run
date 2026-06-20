@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://u8dqawq2vnn1"
-path="res://.godot/imported/road-side-barrier.glb-5f197fee70b3be413b4446bb275c91d5.scn"
+path="res://.godot/imported/road-side-barrier.glb-79c103cfe8af5ed8abc5afb378f37478.scn"
 
 [deps]
 
 source_file="res://assets/roads/road-side-barrier.glb"
-dest_files=["res://.godot/imported/road-side-barrier.glb-5f197fee70b3be413b4446bb275c91d5.scn"]
+dest_files=["res://.godot/imported/road-side-barrier.glb-79c103cfe8af5ed8abc5afb378f37478.scn"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://417wmlii8d7o"
-path="res://.godot/imported/detail-parasol-b.glb-e6d619ad588153c7d6336f5de02ace09.scn"
+path="res://.godot/imported/detail-parasol-b.glb-4e4395ce33732c7fcc44613f551b4d07.scn"
 
 [deps]
 
 source_file="res://assets/city/detail-parasol-b.glb"
-dest_files=["res://.godot/imported/detail-parasol-b.glb-e6d619ad588153c7d6336f5de02ace09.scn"]
+dest_files=["res://.godot/imported/detail-parasol-b.glb-4e4395ce33732c7fcc44613f551b4d07.scn"]
 
 [params]
 

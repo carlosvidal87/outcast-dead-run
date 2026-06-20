@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://1uwtsjuiffj2"
-path="res://.godot/imported/road-curve-barrier.glb-feb0a02996cacc04e2edc831187aeec7.scn"
+path="res://.godot/imported/road-curve-barrier.glb-92c43c8ae9699a88c489f5d40e11b934.scn"
 
 [deps]
 
 source_file="res://assets/roads/road-curve-barrier.glb"
-dest_files=["res://.godot/imported/road-curve-barrier.glb-feb0a02996cacc04e2edc831187aeec7.scn"]
+dest_files=["res://.godot/imported/road-curve-barrier.glb-92c43c8ae9699a88c489f5d40e11b934.scn"]
 
 [params]
 

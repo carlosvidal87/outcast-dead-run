@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c37a0aeruact"
-path="res://.godot/imported/road-curve.glb-060c1a6ae43dc952e5fb13cd2da197eb.scn"
+path="res://.godot/imported/road-curve.glb-09f1f32d7fba67d095c2558f711c2a8f.scn"
 
 [deps]
 
 source_file="res://assets/roads/road-curve.glb"
-dest_files=["res://.godot/imported/road-curve.glb-060c1a6ae43dc952e5fb13cd2da197eb.scn"]
+dest_files=["res://.godot/imported/road-curve.glb-09f1f32d7fba67d095c2558f711c2a8f.scn"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bg8dbn0a2aawi"
-path="res://.godot/imported/smoke.glb-dafbea0bcf176e4d4594ac30df9eea9f.scn"
+path="res://.godot/imported/smoke.glb-1655272275c2a3ef6cbb782993b80629.scn"
 
 [deps]
 
 source_file="res://assets/weapons/smoke.glb"
-dest_files=["res://.godot/imported/smoke.glb-dafbea0bcf176e4d4594ac30df9eea9f.scn"]
+dest_files=["res://.godot/imported/smoke.glb-1655272275c2a3ef6cbb782993b80629.scn"]
 
 [params]
 

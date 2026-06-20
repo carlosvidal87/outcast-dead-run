@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bpa10eegmoba2"
-path="res://.godot/imported/pistol-shot.mp3-28d6cda171cde54b489b4a4c376ba9ee.mp3str"
+path="res://.godot/imported/pistol-shot.mp3-bfc7536643b7a0b6b6a575a877fb29d8.mp3str"
 
 [deps]
 
 source_file="res://assets/sounds/pistol-shot.mp3"
-dest_files=["res://.godot/imported/pistol-shot.mp3-28d6cda171cde54b489b4a4c376ba9ee.mp3str"]
+dest_files=["res://.godot/imported/pistol-shot.mp3-bfc7536643b7a0b6b6a575a877fb29d8.mp3str"]
 
 [params]
 

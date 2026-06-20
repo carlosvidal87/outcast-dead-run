@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://2hs6oeopi38v"
-path="res://.godot/imported/target-fragment-large.glb-44bf4e16bc4b4eb2e2403ab13f1843ff.scn"
+path="res://.godot/imported/target-fragment-large.glb-901d782a430ad8e8cbc8b645231ec06d.scn"
 
 [deps]
 
 source_file="res://assets/weapons/target-fragment-large.glb"
-dest_files=["res://.godot/imported/target-fragment-large.glb-44bf4e16bc4b4eb2e2403ab13f1843ff.scn"]
+dest_files=["res://.godot/imported/target-fragment-large.glb-901d782a430ad8e8cbc8b645231ec06d.scn"]
 
 [params]
 

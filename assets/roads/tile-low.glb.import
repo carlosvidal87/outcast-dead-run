@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://sbn3aaxsslxg"
-path="res://.godot/imported/tile-low.glb-a88ec57c2578d27906b82b978a3b986d.scn"
+path="res://.godot/imported/tile-low.glb-72192a60fd15fab05c1951a2132ff685.scn"
 
 [deps]
 
 source_file="res://assets/roads/tile-low.glb"
-dest_files=["res://.godot/imported/tile-low.glb-a88ec57c2578d27906b82b978a3b986d.scn"]
+dest_files=["res://.godot/imported/tile-low.glb-72192a60fd15fab05c1951a2132ff685.scn"]
 
 [params]
 

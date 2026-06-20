@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cjlb407xu1plw"
-path="res://.godot/imported/detail-awning-wide.glb-5559d89b8b9f83e58b688939d68543de.scn"
+path="res://.godot/imported/detail-awning-wide.glb-11115a56276cc2211f32b39e01248973.scn"
 
 [deps]
 
 source_file="res://assets/city/detail-awning-wide.glb"
-dest_files=["res://.godot/imported/detail-awning-wide.glb-5559d89b8b9f83e58b688939d68543de.scn"]
+dest_files=["res://.godot/imported/detail-awning-wide.glb-11115a56276cc2211f32b39e01248973.scn"]
 
 [params]
 

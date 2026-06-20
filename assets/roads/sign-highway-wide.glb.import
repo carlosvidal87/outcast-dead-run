@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://djmwc3m7o6w8h"
-path="res://.godot/imported/sign-highway-wide.glb-99237dfae3cbb5060b7a5275a0c878e7.scn"
+path="res://.godot/imported/sign-highway-wide.glb-2ddcf87fc7b2ed8d3fbd1e01eaaa188f.scn"
 
 [deps]
 
 source_file="res://assets/roads/sign-highway-wide.glb"
-dest_files=["res://.godot/imported/sign-highway-wide.glb-99237dfae3cbb5060b7a5275a0c878e7.scn"]
+dest_files=["res://.godot/imported/sign-highway-wide.glb-2ddcf87fc7b2ed8d3fbd1e01eaaa188f.scn"]
 
 [params]
 

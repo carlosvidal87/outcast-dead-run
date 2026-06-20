@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dld72812jmbbg"
-path="res://.godot/imported/road-crossing.glb-98307b3df3d1848c7e8ebfd2e40b49bf.scn"
+path="res://.godot/imported/road-crossing.glb-f586afcc66dd5c8b547495bbde424ab1.scn"
 
 [deps]
 
 source_file="res://assets/roads/road-crossing.glb"
-dest_files=["res://.godot/imported/road-crossing.glb-98307b3df3d1848c7e8ebfd2e40b49bf.scn"]
+dest_files=["res://.godot/imported/road-crossing.glb-f586afcc66dd5c8b547495bbde424ab1.scn"]
 
 [params]
 
