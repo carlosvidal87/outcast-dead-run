@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Outbreak Protocol: Pampa"
-run/main_scene="uid://clevu0dn65gbx"
+run/main_scene="res://src/scenes/main_menu.tscn"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -63,13 +63,9 @@ sprint={
 
 rendering_device/driver.windows="d3d12"
 global_illumination/voxel_gi/quality=1
-textures/default_filters/anisotropic_filtering_level=4
-anti_aliasing/quality/msaa_3d=2
-anti_aliasing/quality/use_debanding=true
+textures/default_filters/anisotropic_filtering_level=1
 global_illumination/sdfgi/frames_to_converge=30
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
-anti_aliasing/quality/screen_space_aa=1
-anti_aliasing/quality/use_taa=true
-shadows/directional_shadow/size=4096
-shadows/directional_shadow/soft_shadow_filter_quality=2
-shadows/shadows/soft_shadow_filter_quality=2
+shadows/directional_shadow/size=1024
+shadows/directional_shadow/soft_shadow_filter_quality=0
+shadows/shadows/soft_shadow_filter_quality=0

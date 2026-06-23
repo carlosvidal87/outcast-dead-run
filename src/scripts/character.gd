@@ -2,6 +2,8 @@ extends CharacterBody3D
 
 # script principal do jogador
 
+const SoldierVisualHelper = preload("res://src/scripts/soldier_visual_helper.gd")
+
 const WALK_SPEED = 5.0
 const SPRINT_SPEED = 8.0
 const JUMP_VELOCITY = 6.0
@@ -9,6 +11,19 @@ const BOB_FREQ = 2.0
 const BOB_AMP = 0.05
 const RECOIL_RETURN = 15.0
 const MAX_HP = 100.0
+const SOLDIER_ANIM_LIBRARY = "pistol"
+const SOLDIER_PISTOL_ANIMS = {
+	"idle": "res://assets/characters/Soldier/Pistol Animation/pistol idle.fbx",
+	"walk": "res://assets/characters/Soldier/Pistol Animation/pistol walk.fbx",
+	"run": "res://assets/characters/Soldier/Pistol Animation/pistol run.fbx",
+	"strafe": "res://assets/characters/Soldier/Pistol Animation/pistol strafe.fbx",
+	"jump": "res://assets/characters/Soldier/Pistol Animation/pistol jump.fbx"
+}
+const SOLDIER_RIGHT_HAND_BONE = "mixamorig:RightHand"
+const THIRD_PERSON_PISTOL_PATH = "res://assets/weapons/blaster-a.glb"
+const THIRD_PERSON_PISTOL_OFFSET = Vector3(0.08, 0.02, -0.03)
+const THIRD_PERSON_PISTOL_ROTATION = Vector3(0.0, PI / 2.0, PI / 2.0)
+const THIRD_PERSON_PISTOL_SCALE = Vector3(1.0, 1.0, 1.0)
 
 # configs das armas
 
@@ -110,8 +125,13 @@ const MELEE_DURATION := 0.5
 
 var weapon_kick := Vector3.ZERO
 var weapon_rot_kick := 0.0
+@export var is_local_player := true
+var is_third_person := false
 
 @onready var camera: Camera3D = $Camera3D
+@onready var third_person_camera_pivot: Node3D = $ThirdPersonCameraPivot
+@onready var third_person_camera: Camera3D = $ThirdPersonCameraPivot/ThirdPersonCamera3D
+@onready var soldier_model: Node3D = $Ch35_nonPBR
 @onready var muzzle_flash: OmniLight3D = $"Camera3D/MuzzleFlash"
 @onready var raycast: RayCast3D = $"Camera3D/RayCast3D"
 @onready var hitmarker: Label = $HUD/Hitmarker
@@ -129,9 +149,15 @@ var blaster_default_rot := Vector3(0, 0, 0)
 var sfx_shoot_pool: Array[AudioStreamPlayer] = []
 var next_shoot_player_idx := 0
 var sfx_reload: AudioStreamPlayer
+var hp_bar_fill_style: StyleBox = null
+var soldier_anim_player: AnimationPlayer = null
+var soldier_current_anim := ""
+var soldier_default_transform := Transform3D.IDENTITY
+var third_person_pistol: Node3D = null
+var third_person_pistol_attachment: BoneAttachment3D = null
 
 func _ready() -> void:
-	for i in range(8):
+	for i in range(4):
 		var p = AudioStreamPlayer.new()
 		add_child(p)
 		sfx_shoot_pool.append(p)
@@ -139,10 +165,19 @@ func _ready() -> void:
 	sfx_reload = AudioStreamPlayer.new()
 	add_child(sfx_reload)
 	
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	if multiplayer.multiplayer_peer != null:
+		is_local_player = is_multiplayer_authority()
+
+	if is_local_player:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	camera.current = true
+	third_person_camera.current = false
 	muzzle_flash.visible = false
 	add_to_group("player")
 	raycast.add_exception(self )
+	soldier_default_transform = soldier_model.transform
+	_setup_soldier_pistol_animations()
+	_setup_third_person_pistol()
 
 	# Salva transform original da primeira arma se existir
 	weapon_model = camera.get_node_or_null("blaster-a")
@@ -154,12 +189,22 @@ func _ready() -> void:
 	inventory["blaster-a"]["mag"] = WEAPONS["blaster-a"]["mag_size"]
 	inventory["blaster-a"]["reserve"] = WEAPONS["blaster-a"]["max_ammo"]
 
+	if hp_bar:
+		hp_bar_fill_style = hp_bar.get_theme_stylebox("fill").duplicate()
+		hp_bar.add_theme_stylebox_override("fill", hp_bar_fill_style)
+
 	_update_hud()
+	_apply_player_view_mode()
 
 	# Instancia o Menu de Início/Pausa
-	var menu_controller_script = preload("res://src/scripts/menu_controller.gd")
-	var menu_controller = menu_controller_script.new()
-	$HUD.add_child(menu_controller)
+	if is_local_player:
+		var menu_controller_script = preload("res://src/scripts/menu_controller.gd")
+		var menu_controller = menu_controller_script.new()
+		$HUD.add_child(menu_controller)
+
+
+func _process(_delta: float) -> void:
+	_lock_soldier_visual_transform()
 
 
 func _update_hud() -> void:
@@ -168,12 +213,12 @@ func _update_hud() -> void:
 	if hp_bar:
 		hp_bar.max_value = max_hp
 		hp_bar.value = hp
-		var style_fg = hp_bar.get_theme_stylebox("fill").duplicate()
-		if hp < max_hp * 0.4:
-			style_fg.bg_color = Color(0.8, 0.1, 0.1, 1.0)
-		else:
-			style_fg.bg_color = Color(0.2, 0.8, 0.2, 1.0)
-		hp_bar.add_theme_stylebox_override("fill", style_fg)
+		if hp_bar_fill_style is StyleBoxFlat:
+			var style_fg := hp_bar_fill_style as StyleBoxFlat
+			if hp < max_hp * 0.4:
+				style_fg.bg_color = Color(0.8, 0.1, 0.1, 1.0)
+			else:
+				style_fg.bg_color = Color(0.2, 0.8, 0.2, 1.0)
 	
 	if is_reloading:
 		ammo_label.text = "RELOADING..."
@@ -198,9 +243,15 @@ func _update_hud() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if not is_local_player:
+		return
+
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(-event.relative.x * mouse_sensitivity)
-		camera.rotate_x(-event.relative.y * mouse_sensitivity)
+		if is_third_person:
+			third_person_camera_pivot.rotate_x(-event.relative.y * mouse_sensitivity)
+		else:
+			camera.rotate_x(-event.relative.y * mouse_sensitivity)
 		_clamp_pitch()
 	elif event.is_action_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -214,7 +265,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	# Menu de Compra Improvisado e Interação
 	if event is InputEventKey and event.pressed and not event.echo:
-		if event.physical_keycode == KEY_1:
+		if event.physical_keycode == KEY_F3:
+			_toggle_third_person()
+		elif event.physical_keycode == KEY_1:
 			_try_buy_weapon("blaster-d")
 		elif event.physical_keycode == KEY_2:
 			_try_buy_weapon("blaster-h")
@@ -223,6 +276,95 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif event.physical_keycode == KEY_E:
 			if nearby_interactable:
 				_interact_with(nearby_interactable)
+
+
+func _toggle_third_person() -> void:
+	if not is_local_player:
+		return
+
+	is_third_person = not is_third_person
+	_apply_player_view_mode()
+
+
+func _setup_soldier_pistol_animations() -> void:
+	soldier_anim_player = SoldierVisualHelper.setup_pistol_animation_library(
+		soldier_model,
+		SOLDIER_PISTOL_ANIMS,
+		SOLDIER_ANIM_LIBRARY
+	)
+	if not soldier_anim_player:
+		return
+
+	_play_soldier_animation("idle")
+
+
+func _setup_third_person_pistol() -> void:
+	var result := SoldierVisualHelper.attach_pistol_to_hand(
+		soldier_model,
+		SOLDIER_RIGHT_HAND_BONE,
+		THIRD_PERSON_PISTOL_PATH,
+		THIRD_PERSON_PISTOL_OFFSET,
+		THIRD_PERSON_PISTOL_ROTATION,
+		THIRD_PERSON_PISTOL_SCALE
+	)
+	if not result.get("ok", false):
+		return
+
+	third_person_pistol_attachment = result["attachment"] as BoneAttachment3D
+	third_person_pistol = result["pistol"] as Node3D
+	_apply_player_view_mode()
+
+
+func _update_soldier_animation(input_dir: Vector2, is_sprinting: bool) -> void:
+	if not soldier_anim_player:
+		return
+
+	if not is_on_floor():
+		_play_soldier_animation("jump")
+	elif input_dir == Vector2.ZERO:
+		_play_soldier_animation("idle")
+	elif absf(input_dir.x) > absf(input_dir.y):
+		_play_soldier_animation("strafe")
+	elif is_sprinting:
+		_play_soldier_animation("run")
+	else:
+		_play_soldier_animation("walk")
+
+
+func _play_soldier_animation(state: String) -> void:
+	if soldier_current_anim == state:
+		return
+
+	var anim_name := "%s/%s" % [SOLDIER_ANIM_LIBRARY, state]
+	if not soldier_anim_player.has_animation(anim_name):
+		return
+
+	soldier_current_anim = state
+	soldier_anim_player.play(anim_name, 0.15)
+
+
+func _lock_soldier_visual_transform() -> void:
+	if soldier_model:
+		soldier_model.transform = soldier_default_transform
+
+
+func _apply_player_view_mode() -> void:
+	if is_local_player:
+		camera.current = not is_third_person
+		third_person_camera.current = is_third_person
+		hud.visible = true
+	else:
+		camera.current = false
+		third_person_camera.current = false
+		hud.visible = false
+
+	if soldier_model:
+		soldier_model.visible = not is_local_player or is_third_person
+
+	if weapon_model and is_instance_valid(weapon_model):
+		weapon_model.visible = is_local_player and not is_third_person
+	if third_person_pistol and is_instance_valid(third_person_pistol):
+		third_person_pistol.visible = not is_local_player or is_third_person
 
 
 func _cycle_weapon(direction: int) -> void:
@@ -294,11 +436,17 @@ func equip_weapon(weapon_id: String) -> void:
 		camera.add_child(weapon_model)
 		weapon_model.position = blaster_default_pos
 		weapon_model.rotation = blaster_default_rot
+		_apply_player_view_mode()
 		
 	_update_hud()
 
 
 func _physics_process(delta: float) -> void:
+	if not is_local_player:
+		_lock_soldier_visual_transform()
+		_update_soldier_animation(Vector2.ZERO, false)
+		return
+
 	# regen de vida
 	time_since_last_hit += delta
 	if time_since_last_hit >= regen_delay and hp < max_hp:
@@ -327,7 +475,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	var speed := SPRINT_SPEED if Input.is_physical_key_pressed(KEY_SHIFT) else WALK_SPEED
+	var is_sprinting := Input.is_physical_key_pressed(KEY_SHIFT)
+	var speed := SPRINT_SPEED if is_sprinting else WALK_SPEED
 	var input_dir := Input.get_vector("a", "d", "w", "s")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
@@ -339,6 +488,8 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, speed)
 
 	move_and_slide()
+	_update_soldier_animation(input_dir, is_sprinting)
+	_lock_soldier_visual_transform()
 
 	# Arma Bobbing + Kick
 	t_bob += delta * velocity.length() * float(is_on_floor())
@@ -579,8 +730,8 @@ func _spawn_impact(pos: Vector3, normal: Vector3) -> void:
 	p.emitting = true
 	p.one_shot = true
 	p.explosiveness = 0.95
-	p.amount = 16
-	p.lifetime = 0.4
+	p.amount = 8
+	p.lifetime = 0.3
 	p.direction = Vector3(0, 1, 0)
 	p.spread = 70.0
 	p.initial_velocity_min = 0.5
@@ -600,6 +751,7 @@ func _headbob(time: float) -> Vector3:
 
 func _clamp_pitch() -> void:
 	camera.rotation.x = clamp(camera.rotation.x, -PI / 2.0, PI / 2.0)
+	third_person_camera_pivot.rotation.x = clamp(third_person_camera_pivot.rotation.x, -PI / 3.0, PI / 4.0)
 
 
 func _tick_flash_timer(delta: float) -> void:

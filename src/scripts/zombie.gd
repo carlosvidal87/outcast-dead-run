@@ -16,6 +16,7 @@ const ATTACK_RANGE := 2.0
 const ATTACK_DAMAGE := 10.0
 const ATTACK_COOLDOWN := 1.5
 const HEADSHOT_MULT := 1.5
+const NAV_TARGET_UPDATE_INTERVAL := 0.25
 
 enum State {CHASE, ATTACK, DEATH}
 
@@ -27,6 +28,7 @@ var is_running := false
 var state := State.CHASE
 var hp := BASE_HP
 var attack_timer := 0.0
+var nav_target_timer := 0.0
 var is_dead := false
 var player: Node3D = null
 var anim_player: AnimationPlayer = null
@@ -75,13 +77,17 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += get_gravity().y * delta
 
-	var dist := global_position.distance_to(player.global_position)
+	var dist_sq := global_position.distance_squared_to(player.global_position)
+	var attack_range_sq := ATTACK_RANGE * ATTACK_RANGE
 
 	match state:
 		State.CHASE:
-			nav_agent.target_position = player.global_position
+			nav_target_timer -= delta
+			if nav_target_timer <= 0.0:
+				nav_agent.target_position = player.global_position
+				nav_target_timer = NAV_TARGET_UPDATE_INTERVAL
 
-			if dist <= ATTACK_RANGE:
+			if dist_sq <= attack_range_sq:
 				_change_state(State.ATTACK)
 			elif not nav_agent.is_navigation_finished():
 				var next := nav_agent.get_next_path_position()
@@ -104,7 +110,7 @@ func _physics_process(delta: float) -> void:
 			if attack_timer <= 0.0:
 				attack_timer = ATTACK_COOLDOWN
 				_do_attack()
-			if dist > ATTACK_RANGE * 2.0:
+			if dist_sq > attack_range_sq * 4.0:
 				_change_state(State.CHASE)
 
 	move_and_slide()
@@ -138,7 +144,6 @@ func take_damage(amount: float, is_headshot: bool = false) -> void:
 	if is_dead:
 		return
 	hp -= amount
-	print("[ZOMBIE] take_damage: ", amount, " | HP restante: ", hp)
 	if hp <= 0.0:
 		_die(is_headshot)
 		return

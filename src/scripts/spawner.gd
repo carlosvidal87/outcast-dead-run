@@ -9,9 +9,9 @@ const SPAWN_RADIUS_MIN := 10.0
 const SPAWN_RADIUS_MAX := 20.0
 
 # ─── Configuração de Rounds ─────────────────────────────────────────────────
-const MAX_CONCURRENT_ZOMBIES := 15      ## Máximo de zumbis vivos no mapa ao mesmo tempo
-const BASE_ZOMBIES_PER_ROUND := 5       ## Zumbis base no Round 1
-const ZOMBIES_PER_ROUND_ADD  := 3       ## Zumbis adicionais por round
+const MAX_CONCURRENT_ZOMBIES := 10      ## Máximo de zumbis vivos no mapa ao mesmo tempo
+const BASE_ZOMBIES_PER_ROUND := 4       ## Zumbis base no Round 1
+const ZOMBIES_PER_ROUND_ADD  := 2       ## Zumbis adicionais por round
 const SPAWN_COOLDOWN         := 2.0     ## Intervalo entre cada spawn individual (segundos)
 const BETWEEN_ROUNDS_DELAY   := 10.0    ## Intervalo entre rounds (segundos)
 
@@ -27,6 +27,7 @@ var zombies_active       := 0    ## Quantos zumbis estão vivos agora no mapa
 
 var spawn_timer          := 0.0  ## Cooldown entre spawns individuais
 var between_rounds_timer := 0.0  ## Timer de contagem regressiva entre rounds
+var last_waiting_second  := -1
 
 # ─── Contadores Globais ─────────────────────────────────────────────────────
 var kill_count := 0
@@ -82,9 +83,11 @@ func _process_waiting(delta: float) -> void:
 
 	# Atualiza HUD com contagem regressiva
 	var seconds_left := ceili(between_rounds_timer)
-	_update_ui()
-	if round_label:
-		round_label.text = "PRÓXIMO ROUND EM %d..." % seconds_left
+	if seconds_left != last_waiting_second:
+		last_waiting_second = seconds_left
+		_update_ui()
+		if round_label:
+			round_label.text = "PRÓXIMO ROUND EM %d..." % seconds_left
 
 	if between_rounds_timer <= 0.0:
 		_start_next_round()
@@ -99,6 +102,7 @@ func _start_next_round() -> void:
 	zombies_spawned = 0
 	zombies_killed = 0
 	spawn_timer = 0.0
+	last_waiting_second = -1
 
 	spawner_state = SpawnerState.SPAWNING
 
